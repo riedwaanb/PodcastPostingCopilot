@@ -22,4 +22,10 @@ This project requires creating an Azure OpenAI resource to run several cloud-bas
 + After approval, create an Azure OpenAI resource at https://portal.azure.com/#create/Microsoft.CognitiveServicesOpenAI following the instructions at https://learn.microsoft.com/azure/cognitive-services/openai/how-to/create-resource.  
 + You will need to create model deployments of the following models: gpt-4, dalle, and a plugins-capable model.  Follow the instructions [here](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource#deploy-a-model).
 + Some models such as GPT4 and Whisper at time of writing are only available is certain Azure Regions.
-+ You will need to create a Bing search resource [here](https://portal.azure.com/#create/Microsoft.BingSearch)  
++ You will need to create a Bing search resource [here](https://portal.azure.com/#create/Microsoft.BingSearch)
++ You will need PromptFlow from the vscode marketplace [here](https://marketplace.visualstudio.com/items?itemName=prompt-flow.prompt-flow)
+
+Set up your environment using the following commands:
+```
+pip install -r requirements.txt
+```
