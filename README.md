@@ -1,5 +1,5 @@
 # PodcastPostingCopilot
-This code was used to demonstrate the power of PromptFlow for building Copilots at the Era of AI event in 2024 in Johannesburg, South Africa.
+This code was used to demonstrate the power of Prompt Flow for building Copilots at the Era of AI event in 2024 in Johannesburg, South Africa.
 This is not an official Microsoft Project. It is a personal demonstration.
 
 # Inspiration
@@ -7,7 +7,7 @@ I've taken inspiration from Build 2023 keynote by Microsoft CTO Kevin Scott. [he
 
 # Flow
 This podcast posting Copilot makes it easier to generate a social media post given a url link to a podcast. Using PromptFlow, to orchestrate a series of code, AI models, data and LLM prompts.
-The following is what has been orchestrated by PromptFlow:
+The following is what has been orchestrated by Prompt Flow:
 + Given a Audio Podcast URL, its downloaded locally and using the Azure OpenAI Whisper Model, a transciption is generated
 + With the Transcription, the Guest name is retrieved using an Azure OpenAI GPT3.5 model
 + With the Guest name, their Bio is retrieved using the Bing Search API
