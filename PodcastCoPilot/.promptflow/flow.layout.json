@@ -1,0 +1,55 @@
+{
+  "nodeLayouts": {
+    "inputs": {
+      "x": 12,
+      "y": 67,
+      "index": -1
+    },
+    "outputs": {
+      "x": 187,
+      "y": 947,
+      "index": -1
+    },
+    "TranscribeAudio": {
+      "x": 187,
+      "y": 177,
+      "index": 1
+    },
+    "ExtractName": {
+      "x": 362.80336025009666,
+      "y": 280.8116815591754,
+      "index": 2
+    },
+    "FindGuestBio": {
+      "x": 365.2185694896281,
+      "y": 400.2330383758874,
+      "index": 3
+    },
+    "GenerateTextCopy": {
+      "x": 187,
+      "y": 507,
+      "index": 4
+    },
+    "GenerateImage": {
+      "x": 242.5,
+      "y": 727,
+      "index": 6
+    },
+    "CreateDallePrompt": {
+      "x": 242.5,
+      "y": 617,
+      "index": 5
+    },
+    "GenerateFullPost": {
+      "x": 187,
+      "y": 837,
+      "index": 7
+    },
+    "WhisperPrompt": {
+      "x": 362,
+      "y": 67,
+      "index": 0
+    }
+  },
+  "orientation": "Vertical"
+}

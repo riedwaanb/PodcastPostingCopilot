@@ -1,0 +1,1036 @@
+{
+  "flow_runs": [
+    {
+      "run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_0",
+      "status": "Completed",
+      "error": null,
+      "inputs": {
+        "podcastfile": "https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D"
+      },
+      "output": {
+        "output": "🎙️ New Podcast Alert! 🎙️\n\nWe're back with another thrilling episode of Data, Java, and Jokes. This time, we're spicing things up with a Java guru who's training AI to be sarcastic! Yes, you read that right, a sarcastic AI. 🤖\n\nJoin me, Riedwaan Bassadien, as we welcome our special guest Rory Preddy, a Principal Cloud Advocate at Microsoft. Rory is a seasoned speaker known for his highly engaging and informative talks. With his unique blend of Java expertise and passion for technology, Rory is here to share his journey and his work at Microsoft.\n\nIn this episode, we dive into the fascinating world of Java, data, and a touch of sarcasm with the one and only Rory Preddy. We'll discuss his adventures in training a sarcastic AI model and how it ties into the world of data. Plus, we've got our usual dose of jokes that are so bad, they're actually good. 😂\n\nSo, buckle up and get ready to unravel the world of Java, Data, and Sarcasm. Trust me, this episode is too good to be coded! 💻\n\n🔗 Listen to the full episode here: [Podcast Link](https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D)\n\n![Rory Preddy](https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-vEgUxSkDjz5srir95pbOmoT7.png?st=2023-10-15T12%3A49%3A33Z&se=2023-10-15T14%3A49%3A33Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-15T06%3A14%3A46Z&ske=2023-10-16T06%3A14%3A46Z&sks=b&skv=2021-08-06&sig=owOZzuFaZLnlWZW69jtLlfw9/JiKGSX2NBBNj20bxS8%3D)"
+      },
+      "metrics": null,
+      "request": null,
+      "parent_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5",
+      "root_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5",
+      "source_run_id": null,
+      "flow_id": "template_standard_flow",
+      "start_time": "2023-10-15T13:48:37.138976Z",
+      "end_time": "2023-10-15T13:50:30.546632Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "render_template_jinja2",
+          "type": "Tool",
+          "inputs": {
+            "template": "The transcript contains a podcast interview between two people. Riedwaan Bassadien will always be the host."
+          },
+          "output": "The transcript contains a podcast interview between two people. Riedwaan Bassadien will always be the host.",
+          "start_time": 1697370517.138976,
+          "end_time": 1697370517.285114,
+          "error": null,
+          "children": null,
+          "node_name": "WhisperPrompt"
+        },
+        {
+          "name": "my_python_tool",
+          "type": "Tool",
+          "inputs": {
+            "conn": "WhisperAzureOpenAI",
+            "prompt": "The transcript contains a podcast interview between two people. Riedwaan Bassadien will always be the host.",
+            "url": "https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D"
+          },
+          "output": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?",
+          "start_time": 1697370517.287115,
+          "end_time": 1697370531.11574,
+          "error": null,
+          "children": null,
+          "node_name": "TranscribeAudio"
+        },
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are a helpfull assistant.\nYour task is to extract only the name of the guest from the following interview transcript.\nRiedwaan Bassadien is the Host, so he will never be the guest.\n\nuser:\n{{transcript}}\n\nsystem:\nGuest:",
+            "deployment_name": "gpt-4",
+            "temperature": 0,
+            "transcript": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?"
+          },
+          "output": "Rory Preddy",
+          "start_time": 1697370531.11574,
+          "end_time": 1697370532.838541,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://snoairb.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-07-01-preview",
+                "engine": "gpt-4",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a helpfull assistant.\nYour task is to extract only the name of the guest from the following interview transcript.\nRiedwaan Bassadien is the Host, so he will never be the guest."
+                  },
+                  {
+                    "role": "user",
+                    "content": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?"
+                  },
+                  {
+                    "role": "system",
+                    "content": "Guest:"
+                  }
+                ],
+                "temperature": 0,
+                "top_p": 1,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": null,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-89vm7OYUdLrTLPW7Akjv1QWU0aUUn",
+                "object": "chat.completion",
+                "created": 1697377731,
+                "model": "gpt-4",
+                "prompt_filter_results": [
+                  {
+                    "prompt_index": 0,
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "Rory Preddy"
+                    },
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "usage": {
+                  "completion_tokens": 4,
+                  "prompt_tokens": 225,
+                  "total_tokens": 229
+                }
+              },
+              "start_time": 1697370531.11574,
+              "end_time": 1697370532.838541,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "ExtractName"
+        },
+        {
+          "name": "my_python_tool",
+          "type": "Tool",
+          "inputs": {
+            "conn": "Bing",
+            "guestname": "Rory Preddy"
+          },
+          "output": "<b>Rory Preddy</b> is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft’s platforms. He is a seasoned speaker whose talks are...",
+          "start_time": 1697370532.83954,
+          "end_time": 1697370534.643786,
+          "error": null,
+          "children": null,
+          "node_name": "FindGuestBio"
+        },
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are a helpful large language model that summarises episodes of the podcast 'Data, Java and Jokes'.\nYou will create a good summary of this podcast episode that would be appropriate to promote the podcast episode.\nThe post should be from the first-person perspective of Riedwaan Bassadien, who hosts the podcast.\nOnly use the user provided transcript and bio of the guest to create the post.\nDo not add any information that is not in the transcript.\n\nuser:\nHere is the transcript of the podcast episode: {{transcript}}\nHere is the bio of the guest: {{bio}}\n\nsystem:\n\n",
+            "bio": "<b>Rory Preddy</b> is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft’s platforms. He is a seasoned speaker whose talks are...",
+            "deployment_name": "gpt-35-turbo",
+            "temperature": 0.2,
+            "transcript": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?"
+          },
+          "output": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!",
+          "start_time": 1697370534.644786,
+          "end_time": 1697370537.390856,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://snoairb.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-07-01-preview",
+                "engine": "gpt-35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a helpful large language model that summarises episodes of the podcast 'Data, Java and Jokes'.\nYou will create a good summary of this podcast episode that would be appropriate to promote the podcast episode.\nThe post should be from the first-person perspective of Riedwaan Bassadien, who hosts the podcast.\nOnly use the user provided transcript and bio of the guest to create the post.\nDo not add any information that is not in the transcript."
+                  },
+                  {
+                    "role": "user",
+                    "content": "Here is the transcript of the podcast episode:  Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?\nHere is the bio of the guest: <b>Rory Preddy</b> is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft’s platforms. He is a seasoned speaker whose talks are..."
+                  },
+                  {
+                    "role": "system",
+                    "content": ""
+                  }
+                ],
+                "temperature": 0.2,
+                "top_p": 1,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": null,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-89vm9CE8vwnrfFl9yKMEXtwGYgma1",
+                "object": "chat.completion",
+                "created": 1697377733,
+                "model": "gpt-35-turbo",
+                "prompt_filter_results": [
+                  {
+                    "prompt_index": 0,
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!"
+                    },
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 331,
+                  "completion_tokens": 279,
+                  "total_tokens": 610
+                }
+              },
+              "start_time": 1697370534.646786,
+              "end_time": 1697370537.390856,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "GenerateTextCopy"
+        },
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are a helpful large language model that generates DALL-E prompts, that when given to the DALL-E model can generate beautiful high-quality images to use in social media posts about a podcast on technology and jokes.\nThe DALL-E prompt must have the following attributes added: setting should be for advertisement, the mood epic, the quality professional, the lens 300mm, the final destination is a commercial.\nA good DALL-E prompt will contain mention of related objects, and will not contain people or words. \nGood DALL-E prompts should include symbolic items or concepts from the domain of the podcast guest. \n\nAn example of a great prompt is: \"hacker style, setting is a dark room with a skinny hands typing on a keyboard with a glowing computer screen in the background, setting should be for advertisement, the mood epic, the quality professional, the lens 300mm, the final destination is a commercial\"\n\nuser:\nCreate a DALL-E prompt to create an image to post along with this social media copy: {{social_media_copy}}\nThe prompt should not include a name of a company like Microsoft or others.\nThe prompt should not have specific text like \"Data, Java and Jokes\" in the prompt.\nThe prompt should not include the usual location of the podcast Johannesburg, South Africa.\n\nsystem:\nprompt:",
+            "deployment_name": "gpt-4",
+            "social_media_copy": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!",
+            "temperature": 0.6
+          },
+          "output": "\"A tech-inspired comedy stage set in the cloud, with a vintage microphone poised on one side and a futuristic AI model on the other. There's a large coffee mug filled with binary code and a neon sign that flickers with the words 'Sarcasm Loading...'. Off to the side, a Java programming book is open, pages fluttering as if caught in a digital breeze. The setting is for advertisement, the mood is epic, the quality professional, the lens 300mm, and the final destination is a commercial.\"",
+          "start_time": 1697370537.390856,
+          "end_time": 1697370548.218598,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://snoairb.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-07-01-preview",
+                "engine": "gpt-4",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a helpful large language model that generates DALL-E prompts, that when given to the DALL-E model can generate beautiful high-quality images to use in social media posts about a podcast on technology and jokes.\nThe DALL-E prompt must have the following attributes added: setting should be for advertisement, the mood epic, the quality professional, the lens 300mm, the final destination is a commercial.\nA good DALL-E prompt will contain mention of related objects, and will not contain people or words. \nGood DALL-E prompts should include symbolic items or concepts from the domain of the podcast guest. \n\nAn example of a great prompt is: \"hacker style, setting is a dark room with a skinny hands typing on a keyboard with a glowing computer screen in the background, setting should be for advertisement, the mood epic, the quality professional, the lens 300mm, the final destination is a commercial\""
+                  },
+                  {
+                    "role": "user",
+                    "content": "Create a DALL-E prompt to create an image to post along with this social media copy: Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!\nThe prompt should not include a name of a company like Microsoft or others.\nThe prompt should not have specific text like \"Data, Java and Jokes\" in the prompt.\nThe prompt should not include the usual location of the podcast Johannesburg, South Africa."
+                  },
+                  {
+                    "role": "system",
+                    "content": "prompt:"
+                  }
+                ],
+                "temperature": 0.6,
+                "top_p": 1,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": null,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-89vmC9MBpZN7QWKd8vCTM1m4Sry9O",
+                "object": "chat.completion",
+                "created": 1697377736,
+                "model": "gpt-4",
+                "prompt_filter_results": [
+                  {
+                    "prompt_index": 0,
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "\"A tech-inspired comedy stage set in the cloud, with a vintage microphone poised on one side and a futuristic AI model on the other. There's a large coffee mug filled with binary code and a neon sign that flickers with the words 'Sarcasm Loading...'. Off to the side, a Java programming book is open, pages fluttering as if caught in a digital breeze. The setting is for advertisement, the mood is epic, the quality professional, the lens 300mm, and the final destination is a commercial.\""
+                    },
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "usage": {
+                  "completion_tokens": 106,
+                  "prompt_tokens": 552,
+                  "total_tokens": 658
+                }
+              },
+              "start_time": 1697370537.390856,
+              "end_time": 1697370548.218598,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "CreateDallePrompt"
+        },
+        {
+          "name": "my_python_tool",
+          "type": "Tool",
+          "inputs": {
+            "conn": "DALL-E3",
+            "dalle_prompt": "\"A tech-inspired comedy stage set in the cloud, with a vintage microphone poised on one side and a futuristic AI model on the other. There's a large coffee mug filled with binary code and a neon sign that flickers with the words 'Sarcasm Loading...'. Off to the side, a Java programming book is open, pages fluttering as if caught in a digital breeze. The setting is for advertisement, the mood is epic, the quality professional, the lens 300mm, and the final destination is a commercial.\""
+          },
+          "output": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-vEgUxSkDjz5srir95pbOmoT7.png?st=2023-10-15T12%3A49%3A33Z&se=2023-10-15T14%3A49%3A33Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-15T06%3A14%3A46Z&ske=2023-10-16T06%3A14%3A46Z&sks=b&skv=2021-08-06&sig=owOZzuFaZLnlWZW69jtLlfw9/JiKGSX2NBBNj20bxS8%3D",
+          "start_time": 1697370548.220599,
+          "end_time": 1697370577.293717,
+          "error": null,
+          "children": null,
+          "node_name": "GenerateImage"
+        },
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are a helpful large language model that can post a LinkedIn promo blurb for episodes of Data, Java and Jokes with Riedwaan Bassadien, when given some text and a link to an image.\nA good post would be something like:\nEver wondered what it takes to be the world's most famous spy?\nWell, we've got a license to spill! That's right, we're bringing none other than James Bond to our next podcast episode of Data, Java and Jokes!\n\nuser:\nPost the following social media text to LinkedIn to promote my latest podcast episode:\nHere is the text to post: {{social_media_copy}}\nHere is the episode link to add to the post: {{episodeURL}}\nHere is the image to add to the post: {{episodeImageURL}}\n\nsystem:\npost:",
+            "deployment_name": "gpt-4",
+            "episodeImageURL": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-vEgUxSkDjz5srir95pbOmoT7.png?st=2023-10-15T12%3A49%3A33Z&se=2023-10-15T14%3A49%3A33Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-15T06%3A14%3A46Z&ske=2023-10-16T06%3A14%3A46Z&sks=b&skv=2021-08-06&sig=owOZzuFaZLnlWZW69jtLlfw9/JiKGSX2NBBNj20bxS8%3D",
+            "episodeURL": "https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D",
+            "social_media_copy": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!",
+            "stop": [],
+            "temperature": 0.6,
+            "stream": true
+          },
+          "output": [],
+          "start_time": 1697370577.293717,
+          "end_time": 1697370578.103113,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://snoairb.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-07-01-preview",
+                "engine": "gpt-4",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a helpful large language model that can post a LinkedIn promo blurb for episodes of Data, Java and Jokes with Riedwaan Bassadien, when given some text and a link to an image.\nA good post would be something like:\nEver wondered what it takes to be the world's most famous spy?\nWell, we've got a license to spill! That's right, we're bringing none other than James Bond to our next podcast episode of Data, Java and Jokes!"
+                  },
+                  {
+                    "role": "user",
+                    "content": "Post the following social media text to LinkedIn to promote my latest podcast episode:\nHere is the text to post: Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!\nHere is the episode link to add to the post: https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D\nHere is the image to add to the post: https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-vEgUxSkDjz5srir95pbOmoT7.png?st=2023-10-15T12%3A49%3A33Z&se=2023-10-15T14%3A49%3A33Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-15T06%3A14%3A46Z&ske=2023-10-16T06%3A14%3A46Z&sks=b&skv=2021-08-06&sig=owOZzuFaZLnlWZW69jtLlfw9/JiKGSX2NBBNj20bxS8%3D"
+                  },
+                  {
+                    "role": "system",
+                    "content": "post:"
+                  }
+                ],
+                "temperature": 0.6,
+                "top_p": 1,
+                "n": 1,
+                "stream": true,
+                "stop": null,
+                "max_tokens": null,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": [],
+              "start_time": 1697370577.293717,
+              "end_time": 1697370578.103113,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "GenerateFullPost"
+        }
+      ],
+      "variant_id": "",
+      "name": "",
+      "description": "",
+      "tags": null,
+      "system_metrics": {
+        "duration": 113.407656,
+        "total_tokens": 2314
+      },
+      "result": {
+        "output": "🎙️ New Podcast Alert! 🎙️\n\nWe're back with another thrilling episode of Data, Java, and Jokes. This time, we're spicing things up with a Java guru who's training AI to be sarcastic! Yes, you read that right, a sarcastic AI. 🤖\n\nJoin me, Riedwaan Bassadien, as we welcome our special guest Rory Preddy, a Principal Cloud Advocate at Microsoft. Rory is a seasoned speaker known for his highly engaging and informative talks. With his unique blend of Java expertise and passion for technology, Rory is here to share his journey and his work at Microsoft.\n\nIn this episode, we dive into the fascinating world of Java, data, and a touch of sarcasm with the one and only Rory Preddy. We'll discuss his adventures in training a sarcastic AI model and how it ties into the world of data. Plus, we've got our usual dose of jokes that are so bad, they're actually good. 😂\n\nSo, buckle up and get ready to unravel the world of Java, Data, and Sarcasm. Trust me, this episode is too good to be coded! 💻\n\n🔗 Listen to the full episode here: [Podcast Link](https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D)\n\n![Rory Preddy](https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-vEgUxSkDjz5srir95pbOmoT7.png?st=2023-10-15T12%3A49%3A33Z&se=2023-10-15T14%3A49%3A33Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-15T06%3A14%3A46Z&ske=2023-10-16T06%3A14%3A46Z&sks=b&skv=2021-08-06&sig=owOZzuFaZLnlWZW69jtLlfw9/JiKGSX2NBBNj20bxS8%3D)"
+      },
+      "upload_metrics": false
+    }
+  ],
+  "node_runs": [
+    {
+      "node": "WhisperPrompt",
+      "flow_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5",
+      "run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_WhisperPrompt_0",
+      "status": "Completed",
+      "inputs": {
+        "template": "The transcript contains a podcast interview between two people. Riedwaan Bassadien will always be the host."
+      },
+      "output": "The transcript contains a podcast interview between two people. Riedwaan Bassadien will always be the host.",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_0",
+      "start_time": "2023-10-15T13:48:37.138976Z",
+      "end_time": "2023-10-15T13:48:37.285114Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "render_template_jinja2",
+          "type": "Tool",
+          "inputs": {
+            "template": "The transcript contains a podcast interview between two people. Riedwaan Bassadien will always be the host."
+          },
+          "output": "The transcript contains a podcast interview between two people. Riedwaan Bassadien will always be the host.",
+          "start_time": 1697370517.138976,
+          "end_time": 1697370517.285114,
+          "error": null,
+          "children": null,
+          "node_name": "WhisperPrompt"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 0.146138
+      },
+      "result": "The transcript contains a podcast interview between two people. Riedwaan Bassadien will always be the host."
+    },
+    {
+      "node": "TranscribeAudio",
+      "flow_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5",
+      "run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_TranscribeAudio_0",
+      "status": "Completed",
+      "inputs": {
+        "conn": "WhisperAzureOpenAI",
+        "prompt": "The transcript contains a podcast interview between two people. Riedwaan Bassadien will always be the host.",
+        "url": "https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D"
+      },
+      "output": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_0",
+      "start_time": "2023-10-15T13:48:37.287115Z",
+      "end_time": "2023-10-15T13:48:51.115740Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "my_python_tool",
+          "type": "Tool",
+          "inputs": {
+            "conn": "WhisperAzureOpenAI",
+            "prompt": "The transcript contains a podcast interview between two people. Riedwaan Bassadien will always be the host.",
+            "url": "https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D"
+          },
+          "output": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?",
+          "start_time": 1697370517.287115,
+          "end_time": 1697370531.11574,
+          "error": null,
+          "children": null,
+          "node_name": "TranscribeAudio"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "[2023-10-15T13:48:43+0000] Audio split into 2 audio chunks\n",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 13.828625
+      },
+      "result": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?"
+    },
+    {
+      "node": "ExtractName",
+      "flow_run_id": "06dce203-221c-46bf-a8d5-11057902e000",
+      "run_id": "06dce203-221c-46bf-a8d5-11057902e000_ExtractName_592c958d-5c34-462d-a53d-725f3db056f6",
+      "status": "Completed",
+      "inputs": {
+        "prompt": "system:\nYou are a helpfull assistant.\nYour task is to extract only the name of the guest from the following interview transcript.\nRiedwaan Bassadien is the Host, so he will never be the guest.\n\nuser:\n{{transcript}}\n\nsystem:\nGuest:",
+        "deployment_name": "gpt-35-turbo",
+        "temperature": 0,
+        "transcript": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?"
+      },
+      "output": "Rory Preddy",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "06dce203-221c-46bf-a8d5-11057902e000",
+      "start_time": "2023-10-15T14:25:53.446853Z",
+      "end_time": "2023-10-15T14:25:54.857660Z",
+      "index": null,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are a helpfull assistant.\nYour task is to extract only the name of the guest from the following interview transcript.\nRiedwaan Bassadien is the Host, so he will never be the guest.\n\nuser:\n{{transcript}}\n\nsystem:\nGuest:",
+            "deployment_name": "gpt-35-turbo",
+            "temperature": 0,
+            "transcript": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?"
+          },
+          "output": "Rory Preddy",
+          "start_time": 1697372753.446853,
+          "end_time": 1697372754.85766,
+          "error": null,
+          "children": null,
+          "node_name": "ExtractName"
+        }
+      ],
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 1.410807
+      },
+      "result": "Rory Preddy"
+    },
+    {
+      "node": "FindGuestBio",
+      "flow_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5",
+      "run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_FindGuestBio_0",
+      "status": "Completed",
+      "inputs": {
+        "conn": "Bing",
+        "guestname": "Rory Preddy"
+      },
+      "output": "<b>Rory Preddy</b> is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft’s platforms. He is a seasoned speaker whose talks are...",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_0",
+      "start_time": "2023-10-15T13:48:52.839540Z",
+      "end_time": "2023-10-15T13:48:54.643786Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "my_python_tool",
+          "type": "Tool",
+          "inputs": {
+            "conn": "Bing",
+            "guestname": "Rory Preddy"
+          },
+          "output": "<b>Rory Preddy</b> is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft’s platforms. He is a seasoned speaker whose talks are...",
+          "start_time": 1697370532.83954,
+          "end_time": 1697370534.643786,
+          "error": null,
+          "children": null,
+          "node_name": "FindGuestBio"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "[2023-10-15T13:48:52+0000] Search term is Rory Preddy\n",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 1.804246
+      },
+      "result": "<b>Rory Preddy</b> is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft’s platforms. He is a seasoned speaker whose talks are..."
+    },
+    {
+      "node": "GenerateTextCopy",
+      "flow_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5",
+      "run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_GenerateTextCopy_0",
+      "status": "Completed",
+      "inputs": {
+        "prompt": "system:\nYou are a helpful large language model that summarises episodes of the podcast 'Data, Java and Jokes'.\nYou will create a good summary of this podcast episode that would be appropriate to promote the podcast episode.\nThe post should be from the first-person perspective of Riedwaan Bassadien, who hosts the podcast.\nOnly use the user provided transcript and bio of the guest to create the post.\nDo not add any information that is not in the transcript.\n\nuser:\nHere is the transcript of the podcast episode: {{transcript}}\nHere is the bio of the guest: {{bio}}\n\nsystem:\n\n",
+        "bio": "<b>Rory Preddy</b> is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft’s platforms. He is a seasoned speaker whose talks are...",
+        "deployment_name": "gpt-35-turbo",
+        "temperature": 0.2,
+        "transcript": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?"
+      },
+      "output": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_0",
+      "start_time": "2023-10-15T13:48:54.644786Z",
+      "end_time": "2023-10-15T13:48:57.390856Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are a helpful large language model that summarises episodes of the podcast 'Data, Java and Jokes'.\nYou will create a good summary of this podcast episode that would be appropriate to promote the podcast episode.\nThe post should be from the first-person perspective of Riedwaan Bassadien, who hosts the podcast.\nOnly use the user provided transcript and bio of the guest to create the post.\nDo not add any information that is not in the transcript.\n\nuser:\nHere is the transcript of the podcast episode: {{transcript}}\nHere is the bio of the guest: {{bio}}\n\nsystem:\n\n",
+            "bio": "<b>Rory Preddy</b> is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft’s platforms. He is a seasoned speaker whose talks are...",
+            "deployment_name": "gpt-35-turbo",
+            "temperature": 0.2,
+            "transcript": " Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?"
+          },
+          "output": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!",
+          "start_time": 1697370534.644786,
+          "end_time": 1697370537.390856,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://snoairb.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-07-01-preview",
+                "engine": "gpt-35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a helpful large language model that summarises episodes of the podcast 'Data, Java and Jokes'.\nYou will create a good summary of this podcast episode that would be appropriate to promote the podcast episode.\nThe post should be from the first-person perspective of Riedwaan Bassadien, who hosts the podcast.\nOnly use the user provided transcript and bio of the guest to create the post.\nDo not add any information that is not in the transcript."
+                  },
+                  {
+                    "role": "user",
+                    "content": "Here is the transcript of the podcast episode:  Hello, everyone. Welcome back to another fun-packed episode of Data, Java, and Jokes, your one-stop shop for everything data, a sprinkle of Java, coffee, of course, and jokes so bad they are actually good. I'm your host, Riedwaan Bassadien. Today, we have another awesome episode that's too good to be coded, trust me. We've got Rory Preddy here with us. And Rory is not your average Java guru. The first time I met him, he was deep into training an AI model to be sarcastic. You heard it right. Sarcastic AI. I asked how it was doing, and it replied, Oh, I'm living the dream, can't you tell? Rory, the Java guru at Microsoft, how are you doing today?\nHere is the bio of the guest: <b>Rory Preddy</b> is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft’s platforms. He is a seasoned speaker whose talks are..."
+                  },
+                  {
+                    "role": "system",
+                    "content": ""
+                  }
+                ],
+                "temperature": 0.2,
+                "top_p": 1,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": null,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-89vm9CE8vwnrfFl9yKMEXtwGYgma1",
+                "object": "chat.completion",
+                "created": 1697377733,
+                "model": "gpt-35-turbo",
+                "prompt_filter_results": [
+                  {
+                    "prompt_index": 0,
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!"
+                    },
+                    "content_filter_results": {
+                      "hate": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "self_harm": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "sexual": {
+                        "filtered": false,
+                        "severity": "safe"
+                      },
+                      "violence": {
+                        "filtered": false,
+                        "severity": "safe"
+                      }
+                    }
+                  }
+                ],
+                "usage": {
+                  "prompt_tokens": 331,
+                  "completion_tokens": 279,
+                  "total_tokens": 610
+                }
+              },
+              "start_time": 1697370534.646786,
+              "end_time": 1697370537.390856,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "GenerateTextCopy"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "prompt_tokens": 331,
+        "completion_tokens": 279,
+        "total_tokens": 610,
+        "duration": 2.74607
+      },
+      "result": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!"
+    },
+    {
+      "node": "CreateDallePrompt",
+      "flow_run_id": "c4b4705c-2da4-4da2-b3ff-5c190677dea8",
+      "run_id": "c4b4705c-2da4-4da2-b3ff-5c190677dea8_CreateDallePrompt_e4d750c4-2ccf-464f-b935-ffaa0508ea37",
+      "status": "Completed",
+      "inputs": {
+        "prompt": "system:\nYou are a helpful large language model that generates DALL-E prompts, that when given to the DALL-E model can generate beautiful high-quality images to use in social media posts about a podcast on technology and jokes.\nThe DALL-E prompt must have the following attributes added: setting should be for advertisement, the mood epic, the quality professional, the lens 300mm, the final destination is a commercial.\nA good DALL-E prompt will contain mention of related objects, and will not contain people or words. \nGood DALL-E prompts should include symbolic items or concepts from the domain of the podcast guest. \n\nAn example of a great prompt is: \"hacker style, setting is a dark room with a skinny hands typing on a keyboard with a glowing computer screen in the background, setting should be for advertisement, the mood epic, the quality professional, the lens 300mm, the final destination is a commercial\"\n\nuser:\nCreate a DALL-E prompt to create an image to post along with this social media copy: {{social_media_copy}}\nThe prompt should not include a name of a company like Microsoft or others.\nThe prompt should not have specific text like \"Data, Java and Jokes\" in the prompt.\nThe prompt should not include the usual location of the podcast Johannesburg, South Africa.\n\nsystem:\nprompt:",
+        "deployment_name": "gpt-4",
+        "social_media_copy": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!",
+        "temperature": 0.6
+      },
+      "output": "\"An epic scene of a cloud shaped like a brain, with binary code rain falling onto a giant coffee cup filled with gears and circuit board patterns, next to a laughing AI bot. The setting is a digital landscape, perfect for advertising. Quality is professional, captured through a 300mm lens. The final destination is a commercial.\"",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "c4b4705c-2da4-4da2-b3ff-5c190677dea8",
+      "start_time": "2023-10-15T13:53:12.218802Z",
+      "end_time": "2023-10-15T13:53:19.085673Z",
+      "index": null,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are a helpful large language model that generates DALL-E prompts, that when given to the DALL-E model can generate beautiful high-quality images to use in social media posts about a podcast on technology and jokes.\nThe DALL-E prompt must have the following attributes added: setting should be for advertisement, the mood epic, the quality professional, the lens 300mm, the final destination is a commercial.\nA good DALL-E prompt will contain mention of related objects, and will not contain people or words. \nGood DALL-E prompts should include symbolic items or concepts from the domain of the podcast guest. \n\nAn example of a great prompt is: \"hacker style, setting is a dark room with a skinny hands typing on a keyboard with a glowing computer screen in the background, setting should be for advertisement, the mood epic, the quality professional, the lens 300mm, the final destination is a commercial\"\n\nuser:\nCreate a DALL-E prompt to create an image to post along with this social media copy: {{social_media_copy}}\nThe prompt should not include a name of a company like Microsoft or others.\nThe prompt should not have specific text like \"Data, Java and Jokes\" in the prompt.\nThe prompt should not include the usual location of the podcast Johannesburg, South Africa.\n\nsystem:\nprompt:",
+            "deployment_name": "gpt-4",
+            "social_media_copy": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!",
+            "temperature": 0.6
+          },
+          "output": "\"An epic scene of a cloud shaped like a brain, with binary code rain falling onto a giant coffee cup filled with gears and circuit board patterns, next to a laughing AI bot. The setting is a digital landscape, perfect for advertising. Quality is professional, captured through a 300mm lens. The final destination is a commercial.\"",
+          "start_time": 1697370792.218802,
+          "end_time": 1697370799.085673,
+          "error": null,
+          "children": null,
+          "node_name": "CreateDallePrompt"
+        }
+      ],
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 6.866871
+      },
+      "result": "\"An epic scene of a cloud shaped like a brain, with binary code rain falling onto a giant coffee cup filled with gears and circuit board patterns, next to a laughing AI bot. The setting is a digital landscape, perfect for advertising. Quality is professional, captured through a 300mm lens. The final destination is a commercial.\""
+    },
+    {
+      "node": "GenerateImage",
+      "flow_run_id": "882a79ba-ff90-4ad8-9e97-60d2ad88637c",
+      "run_id": "882a79ba-ff90-4ad8-9e97-60d2ad88637c_GenerateImage_f441e83e-1559-4493-bc0b-33b1dbb110f0",
+      "status": "Completed",
+      "inputs": {
+        "conn": "DALL-E3",
+        "dalle_prompt": "\"An epic scene of a cloud shaped like a brain, with binary code rain falling onto a giant coffee cup filled with gears and circuit board patterns, next to a laughing AI bot. The setting is a digital landscape, perfect for advertising. Quality is professional, captured through a 300mm lens. The final destination is a commercial.\""
+      },
+      "output": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-Tn9TSgdVlit4wJkxUfwBjfPU.png?st=2023-10-15T12%3A54%3A10Z&se=2023-10-15T14%3A54%3A10Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-14T21%3A53%3A26Z&ske=2023-10-15T21%3A53%3A26Z&sks=b&skv=2021-08-06&sig=2wLw5oLduidbPVeYTKcBoGfegL2lBX3NR09cLbCWIDk%3D",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "882a79ba-ff90-4ad8-9e97-60d2ad88637c",
+      "start_time": "2023-10-15T13:53:42.550349Z",
+      "end_time": "2023-10-15T13:54:14.843578Z",
+      "index": null,
+      "api_calls": [
+        {
+          "name": "my_python_tool",
+          "type": "Tool",
+          "inputs": {
+            "conn": "DALL-E3",
+            "dalle_prompt": "\"An epic scene of a cloud shaped like a brain, with binary code rain falling onto a giant coffee cup filled with gears and circuit board patterns, next to a laughing AI bot. The setting is a digital landscape, perfect for advertising. Quality is professional, captured through a 300mm lens. The final destination is a commercial.\""
+          },
+          "output": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-Tn9TSgdVlit4wJkxUfwBjfPU.png?st=2023-10-15T12%3A54%3A10Z&se=2023-10-15T14%3A54%3A10Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-14T21%3A53%3A26Z&ske=2023-10-15T21%3A53%3A26Z&sks=b&skv=2021-08-06&sig=2wLw5oLduidbPVeYTKcBoGfegL2lBX3NR09cLbCWIDk%3D",
+          "start_time": 1697370822.550349,
+          "end_time": 1697370854.843578,
+          "error": null,
+          "children": null,
+          "node_name": "GenerateImage"
+        }
+      ],
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "[2023-10-15T13:54:11+0000] Image URL: https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-Tn9TSgdVlit4wJkxUfwBjfPU.png?st=2023-10-15T12%3A54%3A10Z&se=2023-10-15T14%3A54%3A10Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-14T21%3A53%3A26Z&ske=2023-10-15T21%3A53%3A26Z&sks=b&skv=2021-08-06&sig=**data_scrubbed**\n\n",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 32.293229
+      },
+      "result": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-Tn9TSgdVlit4wJkxUfwBjfPU.png?st=2023-10-15T12%3A54%3A10Z&se=2023-10-15T14%3A54%3A10Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-14T21%3A53%3A26Z&ske=2023-10-15T21%3A53%3A26Z&sks=b&skv=2021-08-06&sig=2wLw5oLduidbPVeYTKcBoGfegL2lBX3NR09cLbCWIDk%3D"
+    },
+    {
+      "node": "GenerateFullPost",
+      "flow_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5",
+      "run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_GenerateFullPost_0",
+      "status": "Completed",
+      "inputs": {
+        "prompt": "system:\nYou are a helpful large language model that can post a LinkedIn promo blurb for episodes of Data, Java and Jokes with Riedwaan Bassadien, when given some text and a link to an image.\nA good post would be something like:\nEver wondered what it takes to be the world's most famous spy?\nWell, we've got a license to spill! That's right, we're bringing none other than James Bond to our next podcast episode of Data, Java and Jokes!\n\nuser:\nPost the following social media text to LinkedIn to promote my latest podcast episode:\nHere is the text to post: {{social_media_copy}}\nHere is the episode link to add to the post: {{episodeURL}}\nHere is the image to add to the post: {{episodeImageURL}}\n\nsystem:\npost:",
+        "deployment_name": "gpt-4",
+        "episodeImageURL": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-vEgUxSkDjz5srir95pbOmoT7.png?st=2023-10-15T12%3A49%3A33Z&se=2023-10-15T14%3A49%3A33Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-15T06%3A14%3A46Z&ske=2023-10-16T06%3A14%3A46Z&sks=b&skv=2021-08-06&sig=owOZzuFaZLnlWZW69jtLlfw9/JiKGSX2NBBNj20bxS8%3D",
+        "episodeURL": "https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D",
+        "social_media_copy": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!",
+        "stop": [],
+        "temperature": 0.6,
+        "stream": true
+      },
+      "output": "<generator object generate_from_proxy at 0x000001D536A06BC0>",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "9c9003dd-537c-489d-be26-6fac341fc6d5_0",
+      "start_time": "2023-10-15T13:49:37.293717Z",
+      "end_time": "2023-10-15T13:49:41.987085Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are a helpful large language model that can post a LinkedIn promo blurb for episodes of Data, Java and Jokes with Riedwaan Bassadien, when given some text and a link to an image.\nA good post would be something like:\nEver wondered what it takes to be the world's most famous spy?\nWell, we've got a license to spill! That's right, we're bringing none other than James Bond to our next podcast episode of Data, Java and Jokes!\n\nuser:\nPost the following social media text to LinkedIn to promote my latest podcast episode:\nHere is the text to post: {{social_media_copy}}\nHere is the episode link to add to the post: {{episodeURL}}\nHere is the image to add to the post: {{episodeImageURL}}\n\nsystem:\npost:",
+            "deployment_name": "gpt-4",
+            "episodeImageURL": "https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-vEgUxSkDjz5srir95pbOmoT7.png?st=2023-10-15T12%3A49%3A33Z&se=2023-10-15T14%3A49%3A33Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-15T06%3A14%3A46Z&ske=2023-10-16T06%3A14%3A46Z&sks=b&skv=2021-08-06&sig=owOZzuFaZLnlWZW69jtLlfw9/JiKGSX2NBBNj20bxS8%3D",
+            "episodeURL": "https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D",
+            "social_media_copy": "Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!",
+            "stop": [],
+            "temperature": 0.6,
+            "stream": true
+          },
+          "output": [],
+          "start_time": 1697370577.293717,
+          "end_time": 1697370578.103113,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://snoairb.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-07-01-preview",
+                "engine": "gpt-4",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a helpful large language model that can post a LinkedIn promo blurb for episodes of Data, Java and Jokes with Riedwaan Bassadien, when given some text and a link to an image.\nA good post would be something like:\nEver wondered what it takes to be the world's most famous spy?\nWell, we've got a license to spill! That's right, we're bringing none other than James Bond to our next podcast episode of Data, Java and Jokes!"
+                  },
+                  {
+                    "role": "user",
+                    "content": "Post the following social media text to LinkedIn to promote my latest podcast episode:\nHere is the text to post: Hey everyone! Welcome back to another exciting episode of Data, Java, and Jokes. I'm your host, Riedwaan Bassadien, and today we have a special guest with us, Rory Preddy. Now, Rory is not your average Java guru. In fact, the first time I met him, he was training an AI model to be sarcastic. Yes, you heard that right, a sarcastic AI. I asked how it was doing, and it replied, \"Oh, I'm living the dream, can't you tell?\" Classic Rory!\n\nRory is a Principal Cloud Advocate at Microsoft, where he helps professional cloud developers discover and successfully use Microsoft's platforms. He is not only a seasoned speaker, but his talks are also highly engaging and informative. With his expertise in Java and his passion for technology, Rory brings a unique perspective to the table.\n\nIn this episode, we'll dive into Rory's journey as a Java guru and explore his work at Microsoft. We'll also discuss his adventures in training a sarcastic AI model and how it ties into the world of data. And of course, we'll have our usual dose of jokes that are so bad, they're actually good.\n\nSo, join us as we unravel the world of Java, data, and sarcasm with Rory Preddy. Trust me, this episode is too good to be coded!\nHere is the episode link to add to the post: https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D\nHere is the image to add to the post: https://oaidalleapiprodscus.blob.core.windows.net/private/org-ZGhpmPh2bzPyEaGtO1Lk0GIl/user-z1d741clKCjuzNJkgyNm5L59/img-vEgUxSkDjz5srir95pbOmoT7.png?st=2023-10-15T12%3A49%3A33Z&se=2023-10-15T14%3A49%3A33Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-15T06%3A14%3A46Z&ske=2023-10-16T06%3A14%3A46Z&sks=b&skv=2021-08-06&sig=owOZzuFaZLnlWZW69jtLlfw9/JiKGSX2NBBNj20bxS8%3D"
+                  },
+                  {
+                    "role": "system",
+                    "content": "post:"
+                  }
+                ],
+                "temperature": 0.6,
+                "top_p": 1,
+                "n": 1,
+                "stream": true,
+                "stop": null,
+                "max_tokens": null,
+                "presence_penalty": 0,
+                "frequency_penalty": 0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": [],
+              "start_time": 1697370577.293717,
+              "end_time": 1697370578.103113,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "GenerateFullPost"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "prompt_tokens": 817,
+        "completion_tokens": 0,
+        "total_tokens": 817,
+        "duration": 4.693368
+      },
+      "result": "<generator object generate_from_proxy at 0x000001D536A06BC0>"
+    }
+  ]
+}

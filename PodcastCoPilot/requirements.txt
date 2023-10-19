@@ -1,0 +1,4 @@
+requests
+promptflow
+pydub
+openai

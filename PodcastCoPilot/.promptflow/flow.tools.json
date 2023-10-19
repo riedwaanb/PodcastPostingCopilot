@@ -1,0 +1,202 @@
+{
+  "package": {},
+  "code": {
+    "echo.py": {
+      "type": "python",
+      "inputs": {
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "echo.py",
+      "function": "echo"
+    },
+    "joke.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "topic": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "description": "Prompt is a jinja2 template that generates prompt for LLM",
+      "source": "joke.jinja2"
+    },
+    "TranscribeAudio.py": {
+      "type": "python",
+      "inputs": {
+        "url": {
+          "type": [
+            "string"
+          ]
+        },
+        "prompt": {
+          "type": [
+            "string"
+          ]
+        },
+        "conn": {
+          "type": [
+            "CustomConnection"
+          ]
+        }
+      },
+      "source": "TranscribeAudio.py",
+      "function": "my_python_tool"
+    },
+    "ExtractName.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "transcript": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "ExtractName.jinja2"
+    },
+    "FindGuestBio.py": {
+      "type": "python",
+      "inputs": {
+        "guestname": {
+          "type": [
+            "string"
+          ]
+        },
+        "conn": {
+          "type": [
+            "CustomConnection"
+          ]
+        }
+      },
+      "source": "FindGuestBio.py",
+      "function": "my_python_tool"
+    },
+    "GeneratePost.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "transcript": {
+          "type": [
+            "string"
+          ]
+        },
+        "bio": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "GeneratePost.jinja2"
+    },
+    "GenerateImage.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "GenerateImage.jinja2"
+    },
+    "GenerateImage.py": {
+      "type": "python",
+      "inputs": {
+        "dalle_prompt": {
+          "type": [
+            "string"
+          ]
+        },
+        "conn": {
+          "type": [
+            "CustomConnection"
+          ]
+        }
+      },
+      "source": "GenerateImage.py",
+      "function": "my_python_tool"
+    },
+    "Dalle2Prompt.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "Dalle2Prompt.jinja2"
+    },
+    "CreateDalle2Prompt.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "social_media_copy": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "CreateDalle2Prompt.jinja2"
+    },
+    "GenerateFullPost.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "social_media_copy": {
+          "type": [
+            "string"
+          ]
+        },
+        "episodeURL": {
+          "type": [
+            "string"
+          ]
+        },
+        "episodeImageURL": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "GenerateFullPost.jinja2"
+    },
+    "GenerateTextCopy.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "transcript": {
+          "type": [
+            "string"
+          ]
+        },
+        "bio": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "GenerateTextCopy.jinja2"
+    },
+    "WhisperPrompt.jinja2": {
+      "type": "prompt",
+      "source": "WhisperPrompt.jinja2"
+    },
+    "prompt_node_7kuf.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "prompt_node_7kuf.jinja2"
+    }
+  }
+}

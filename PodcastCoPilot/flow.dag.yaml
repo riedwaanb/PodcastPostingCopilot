@@ -1,0 +1,92 @@
+id: template_standard_flow
+name: Template Standard Flow
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  podcastfile:
+    type: string
+    default: https://dlzarb.blob.core.windows.net/podcast/PodcastSnippet.mp3?sp=r&st=2023-10-09T14:39:22Z&se=2023-12-30T22:39:22Z&spr=https&sv=2022-11-02&sr=b&sig=Vte2iOcGMdPIMviPeEWuLxiHE5z%2BRKSobURMBJkHYoc%3D
+outputs:
+  output:
+    type: string
+    reference: ${GenerateFullPost.output}
+nodes:
+- name: WhisperPrompt
+  type: prompt
+  source:
+    type: code
+    path: WhisperPrompt.jinja2
+  inputs: {}
+- name: TranscribeAudio
+  type: python
+  source:
+    type: code
+    path: TranscribeAudio.py
+  inputs:
+    conn: WhisperAzureOpenAI
+    url: ${inputs.podcastfile}
+    prompt: ${WhisperPrompt.output}
+- name: ExtractName
+  type: llm
+  source:
+    type: code
+    path: ExtractName.jinja2
+  inputs:
+    deployment_name: gpt-35-turbo
+    temperature: 0
+    transcript: ${TranscribeAudio.output}
+  connection: AzureOpenAI
+  api: chat
+- name: FindGuestBio
+  type: python
+  source:
+    type: code
+    path: FindGuestBio.py
+  inputs:
+    conn: Bing
+    guestname: ${ExtractName.output}
+- name: GenerateTextCopy
+  type: llm
+  source:
+    type: code
+    path: GenerateTextCopy.jinja2
+  inputs:
+    deployment_name: gpt-35-turbo
+    temperature: 0.2
+    transcript: ${TranscribeAudio.output}
+    bio: ${FindGuestBio.output}
+  connection: AzureOpenAI
+  api: chat
+- name: CreateDallePrompt
+  type: llm
+  source:
+    type: code
+    path: CreateDalle2Prompt.jinja2
+  inputs:
+    deployment_name: gpt-4
+    social_media_copy: ${GenerateTextCopy.output}
+    temperature: 0.6
+  connection: AzureOpenAI
+  api: chat
+- name: GenerateImage
+  type: python
+  source:
+    type: code
+    path: GenerateImage.py
+  inputs:
+    conn: DALL-E3
+    dalle_prompt: ${CreateDallePrompt.output}
+- name: GenerateFullPost
+  type: llm
+  source:
+    type: code
+    path: GenerateFullPost.jinja2
+  inputs:
+    deployment_name: gpt-4
+    stop: []
+    social_media_copy: ${GenerateTextCopy.output}
+    temperature: 0.6
+    episodeURL: ${inputs.podcastfile}
+    episodeImageURL: ${GenerateImage.output}
+  connection: AzureOpenAI
+  api: chat
